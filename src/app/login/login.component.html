@@ -1,0 +1,68 @@
+<div class="container-100">
+  <div class="row">
+
+    <div class="col-md-3"></div>
+
+    <div class="col-md-6">
+      <form class="" #userForm="ngForm" (ngSubmit)="submit()"><br>
+        <h1>Admin Portal</h1><br>
+
+        <div [hidden]="userForm.submitted">
+          <div class="form-group">
+            <input type="text" id="empNO" name="empNO" class="form-control" [(ngModel)]="modelLogin.empNO"
+              #empNO="ngModel" required minlength="1" placeholder="User Name"
+              [class.is-invalid]="empNO.invalid && empNO.touched" required>
+
+            <small class="text-danger" [class.d-none]="empNO.valid || empNO.untouched">
+              Please enter the User Name
+            </small>
+
+          </div>
+
+          <div class="form-group ">
+            <div class="mb-3">
+
+              <input name="password" type="password" class="form-control" [(ngModel)]="modelLogin.password"
+                #password="ngModel" placeholder="Password" required minlength="6"
+                [class.is-invalid]="password.invalid && password.touched" required autocomplete="off">
+
+              <small class="text-danger" [class.d-none]="password.valid || password.untouched">
+                Please enter the password
+              </small>
+
+            </div>
+
+          </div>
+          <div class="form-group">
+            <div class="ml-4">
+            <input name="checkbox" type="checkbox" class="form-check-input" id="checkbox" required>
+            <label class="form-check-label" for="exampleCheck1">Remember Me</label>
+            </div>
+          </div>
+
+          <div class="row">
+
+
+            <div class="col-md-4 offset-md-3" >
+
+              <button type="submit" class="btn btn-primary mx-2" [disabled]="userForm.invalid">Submit</button>
+
+              <button type="button" class="btn btn-secondary mx-2" (click)="userForm.resetForm({})">Clear</button>
+            </div>
+
+          </div>
+
+        </div>
+
+<!-- 
+        {{modelLogin.empNO}},
+        {{modelLogin.password}} -->
+
+      </form>
+
+    </div>
+    <div class="col-md-3"></div>
+
+
+  </div>
+</div>
